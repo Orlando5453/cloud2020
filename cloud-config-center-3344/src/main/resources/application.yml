@@ -1,0 +1,23 @@
+# 3344的yml
+server:
+  port: 3344
+
+spring:
+  application:
+    name: cloud-config-center #注册进eureka服务器的微服务名
+  cloud:
+    config:
+      server:
+       git:
+        uri: git
+        #搜索目录
+        search-paths:
+          - spring-cloud-config
+      ##读取分支
+      label: master
+
+#服务注册到eureka地址
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka
